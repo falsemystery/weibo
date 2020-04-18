@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>b言b语</title>
+    <title>weibo</title>
     <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
     <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
     <link href="https://fonts.loli.net/css?family=Noto+Serif+SC:200,300,900&display=swap&subset=chinese-simplified" rel="stylesheet">
@@ -26,16 +26,16 @@
     <main id="app">
         <aside>
             <p id="describe">
-                碎碎念
+                
             </p>
         </aside>
-        <p class="tip">现在一共写了 {{count}} 条</p>
+        <p class="tip">共写了 {{count}} 条</p>
         <section class="item" v-for="item in contents" v-cloak>
             <p v-html='item.attributes.content'></p>
             <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
         </section>
         <div class="load-ctn">
-            <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>再翻翻</button>
+            <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>更多</button>
             <p class="tip" v-else>just a while</p>
         </div>
     </main>
@@ -83,7 +83,7 @@
     function getData(page = 0) {
         query.descending('createdAt').skip(page * 20).limit(20).find().then(function(results) {
             if (results.length == 0) {
-                alert('之前没 b 过了')
+                alert('没有了')
             } else {
                 let resC = results;
                 reqData = false;
